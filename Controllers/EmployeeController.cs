@@ -15,7 +15,6 @@ namespace RegistrationApi.Controllers
     public class EmployeeController : ControllerBase
     {
         // GET: api/<EmployeeController>
-        List<Employee> emp = new List<Employee>();
 
         string[] EmployeeNames = { "ravi", "raju", "Praveen", "vikas" };
         string[] UserName = { "RaviKumar", "RajuKuamr", "PraveenKumar", "vikas123" };
@@ -99,7 +98,7 @@ namespace RegistrationApi.Controllers
 
         // POST api/<EmployeeController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] EmpController emp)
         {
         }
 

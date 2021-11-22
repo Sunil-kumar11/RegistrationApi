@@ -14,38 +14,59 @@ namespace RegistrationApi.Controllers
     [ApiController]
     public class EmpController : ControllerBase
     {
-        List<Employee> Emp = new List<Employee>()
+        //EmpController Employees = new EmpController();
+        
+        
+        List<Employee> emp = new List<Employee>()
         {
             new Employee
             {
-                EmployeeNames="suresh",UserName="suresh@123",Password="suri123",Id=123
+                EmployeeNames="suresh",UserName="suresh@123",Password="suri123",Id=121
             },
             new Employee
             {
-                EmployeeNames="mahesh",UserName="mahesh@123",Password="mahi123",Id=123
+                EmployeeNames="mahesh",UserName="mahesh@123",Password="mahi123",Id=122
+            },
+            new Employee
+            {
+                EmployeeNames="sreekanth",UserName="Sreekanth@123",Password="sreekanth123",Id=123
+            },
+            new Employee
+            {
+                EmployeeNames="Ravi",UserName="Ravi@123",Password="Ravi123",Id=124
             }
         };
+        
+
+        //public Employee AddEmployee(Employee employee)
+        //{
+        //    emp.Add(employee);
+        //    return employee;
+        //}
 
         // GET: api/<EmpController>
         [HttpGet]
-        public IActionResult  GetEmp()
+        public List<Employee>  GetEmp()
             
         {
-            return Ok(Emp);
+            return emp;
         }
 
         // GET api/<EmpController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Employee Get(int id)
         {
             
-            return "value";
+            return emp.SingleOrDefault(x => x.Id ==id);
         }
 
         // POST api/<EmpController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public string AddEmployees([FromBody] Employee employee)
         {
+
+            emp.Add(employee);
+            return "registration Successfull";
         }
 
         // PUT api/<EmpController>/5
